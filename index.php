@@ -40,12 +40,10 @@
 					responsive: {
 						details: {
 							renderer: function (api,rowIdx ) {
-								console.log(rowIdx);
 								var data = api.cells(rowIdx,':hidden').eq(0).map(function( cell) {
 									var header = $(api.column(cell.column).header());
 									return '<p style="color:green">'+header.text()+' : '+api.cell(cell).data()+'</p>';
 								}).toArray().join('');
-								console.log(data);
 								return data ? $('<table/>').append(data) : false;
 							}
 						}
